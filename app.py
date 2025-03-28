@@ -33,7 +33,6 @@ def generate_image(uploaded_file, prompt, history=None):
         return None
 
 def main():
-    st.title("🤖 Image Generation Chat")
 
     if "history" not in st.session_state:
         st.session_state.history = []
@@ -59,7 +58,6 @@ def main():
                 st.markdown(item['content'])
         elif item['role'] == 'model':
             with st.chat_message("assistant"):
-                # Tampilkan gambar dari base64 jika ada
                 if 'image_base64' in item:
                     st.image(base64.b64decode(item['image_base64']))
 
